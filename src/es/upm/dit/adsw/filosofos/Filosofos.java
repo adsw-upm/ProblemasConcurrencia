@@ -6,7 +6,7 @@ package es.upm.dit.adsw.filosofos;
  * @author jpuente
  * @version 30.10.2014
  */
-public class PruebaFilosofos {
+public class Filosofos {
 
     public static void main (String[] args) {
         System.out.println("Problema de los filosofos");
