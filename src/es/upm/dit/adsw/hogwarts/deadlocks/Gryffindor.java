@@ -18,9 +18,9 @@ public class Gryffindor extends Thread {
 	private Varita miVarita;
 	private int sueño;
 
-	public Gryffindor(String nombre, Sombrero gorro, Varita miVarita, int sueño) {
+	public Gryffindor(String nombre, Sombrero miSombrero, Varita miVarita, int sueño) {
 		this.nombre = "🦁 Gryffindor:\t" + nombre;
-		this.miSombrero = gorro;
+		this.miSombrero = miSombrero;
 		this.miVarita = miVarita;
 		this.sueño = sueño;
 	}
@@ -41,7 +41,7 @@ public class Gryffindor extends Thread {
 			System.out.println(this.nombre + " usa varita: " + this.miVarita.getNombre());
 
 			try {
-				System.out.println(this.nombre + " : entra en la sección crítica y LANZA EL HECHIZO!");
+				System.out.println(this.nombre + " : entra en la región crítica y LANZA EL HECHIZO!");
 				Thread.sleep(this.sueño);
 			} catch (Exception ignored) {
 			}
