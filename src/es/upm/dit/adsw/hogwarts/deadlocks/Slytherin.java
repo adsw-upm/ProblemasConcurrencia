@@ -18,9 +18,9 @@ public class Slytherin extends Thread {
 	private Varita miVarita;
 	private int sueño;
 
-	public Slytherin(String nombre, Sombrero gorro, Varita miVarita, int sueño) {
+	public Slytherin(String nombre, Sombrero miSombrero, Varita miVarita, int sueño) {
 		this.nombre = "🐍 Slytherin:\t" + nombre;
-		this.miSombrero = gorro;
+		this.miSombrero = miSombrero;
 		this.miVarita = miVarita;
 		this.sueño = sueño;
 	}
@@ -40,7 +40,7 @@ public class Slytherin extends Thread {
 			System.out.println(this.nombre + " se pone el sombrero:\t" + this.miSombrero.getNombre());
 
 			try {
-				System.out.println(this.nombre + "\t:entra en la sección crítica y LANZA EL HECHIZO!");
+				System.out.println(this.nombre + "\t:entra en la región crítica y LANZA EL HECHIZO!");
 				Thread.sleep(this.sueño);
 			} catch (Exception ignored) {
 			}
