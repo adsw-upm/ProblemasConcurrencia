@@ -46,7 +46,7 @@ public class Slytherin extends Thread {
 				}
 				System.out.println(this.nombre + " : \t ha obtenido el cerrojo del sombrero.");
 
-				System.out.println(this.nombre + " : \t entra en la sección crítica y LANZA EL HECHIZO!");
+				System.out.println(this.nombre + " : \t entra en la región crítica y LANZA EL HECHIZO!");
 				this.cerrojoSombrero.unlock();
 				System.out.println(this.nombre + " : \t devuelve el cerrojo del sombrero.");
 				this.cerrojoVarita.unlock();
