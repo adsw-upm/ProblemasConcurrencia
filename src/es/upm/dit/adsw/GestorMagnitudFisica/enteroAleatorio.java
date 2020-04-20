@@ -8,7 +8,7 @@ package es.upm.dit.adsw.GestorMagnitudFisica;
 
 public class enteroAleatorio {
 
-	java.util.Random generador = new java.util.Random(System.currentTimeMillis());	
+	private java.util.Random generador = new java.util.Random(System.currentTimeMillis());	
 	
 	public int otroEntero() {
 
