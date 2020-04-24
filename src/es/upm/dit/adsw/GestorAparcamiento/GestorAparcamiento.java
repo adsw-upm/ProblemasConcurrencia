@@ -1,4 +1,4 @@
-package es.upm.dit.adsw.GestorAparcamiento; 
+package es.upm.dit.adsw.GestorAparcamiento;
 
 /**
  * @author Alejandro Alonso

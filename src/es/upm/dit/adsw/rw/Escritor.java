@@ -1,7 +1,5 @@
 package es.upm.dit.adsw.rw;
 
-import java.util.Random;
-
 /**
  * Escritor
  * 
@@ -11,21 +9,25 @@ import java.util.Random;
  */
 public class Escritor extends Thread {
 
-	Gestor gestor;
-	int id;
-	Random random = new Random();
+	private Gestor gestor;
+	private java.util.Random generador = new java.util.Random(System.currentTimeMillis());
+	private int id;
+	private long retardoInicial;
+	private int  retardoMax;
 
-	public Escritor(Gestor gestor, int id) {
-		this.gestor = gestor;
-		this.id = id;
+	public Escritor(Gestor gestor, int id, long retardoInicial) {
+		this.gestor         = gestor;
+		this.id             = id;
+		this.retardoMax     = 5000;
+		this.retardoInicial = retardoInicial;
 	}
 
 	public void run() {
 		try {
 			while (true) {
-				Thread.sleep(random.nextInt(6000));
+				Thread.sleep(retardoInicial);
 				gestor.empiezaEscribir(id);
-				Thread.sleep(random.nextInt(3000));
+				Thread.sleep(generador.nextInt(retardoMax));
 				gestor.terminaEscribir(id);
 			}
 		} catch (InterruptedException ie) {

@@ -31,8 +31,7 @@ public class AvionVip extends Thread{
             // Espera un retardo aleatorio antes de despegar
             Thread.sleep(random.nextInt(retardoAleatorio)*1000);
             System.out.println(">>> Avion Vip id: " + id + " empieza a despegar");
-
-            gestor.despegarAvionVIP();
+            gestor.despegarAvionVIP(id);
             System.out.println("+++ Avion Vip id: " + id + " ha despegado");
 
         } catch (InterruptedException e) {
