@@ -12,11 +12,11 @@ public class GestorLEEquitativo implements Gestor {
 
 	private boolean bloqueoEscritor = false;
 	private boolean bloqueoLector = false;
-	private int nEscritoresEsperando = 0;
-	private int nLectoresEsperando = 0;
+	private int     nEscritoresEsperando = 0;
+	private int     nLectoresEsperando = 0;
 	private boolean turnoEscritor = true;
-	private int nLectores = 0;
-	private int nEscritores = 0;
+	private int     nLectores = 0;
+	private int     nEscritores = 0;
 
 	private void assertSafe() {
         boolean safe = (!(nLectores > 0 && nEscritores != 0)

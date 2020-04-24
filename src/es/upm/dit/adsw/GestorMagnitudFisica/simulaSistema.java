@@ -12,7 +12,7 @@ public class simulaSistema {
 		int paraEmpezar     = 5;
 		enteroAleatorio generadorEnteros = new enteroAleatorio();
 		
-		gestorHebras elGestor = new gestorHebras();
+		gestorHebras  elGestor = new gestorHebras();
 		
 		new hebraGestora(elGestor);
 		

@@ -19,7 +19,7 @@ public class PruebaDespegueAvion {
         }
 
         for (int i = 0; i < nAvionesVip; i++) {
-            AvionVip avionVip = new AvionVip(gestor, i * retardoVip, i);
+            AvionVip avionVip = new AvionVip(gestor, i * retardoVip, 1000 + i);
             avionVip.start();
         }
 

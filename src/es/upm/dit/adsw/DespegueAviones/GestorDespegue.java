@@ -9,16 +9,30 @@ package es.upm.dit.adsw.DespegueAviones;
 
 public class GestorDespegue {
 
-    private boolean      pistaOcupada   = false;
-    private int          nVIPEsperando  = 0;
-    private int          nEsperando     = 0;
-    private final int    tiempoAvion    = 3;
-    private boolean      anteriorVIP    = false;
-    private Temporizador unTemporizador = new Temporizador(this);
+    private boolean      pistaOcupada;
+    private int          nVIPEsperando;
+    private int          nEsperando;
+    private final int    tiempoAvion = 3;
+    private boolean      anteriorVIP;
+    private Temporizador unTemporizador; 
 
-    public synchronized void despegarAvion() throws InterruptedException {
+    public GestorDespegue() {
+        pistaOcupada   = false;
+        nVIPEsperando  = 0;
+        nEsperando     = 0;
+        anteriorVIP    = false;
+        unTemporizador = new Temporizador(this);
+
+    }
+    
+    public synchronized void despegarAvion(int id) throws InterruptedException {
 
         nEsperando ++;
+
+        if (pistaOcupada || (nEsperando > 0 && !anteriorVIP)) {
+           System.out.println("### Avion     id: " + id + " está bloqueado");            
+        }
+
         try {
             while (pistaOcupada || (nVIPEsperando > 0 && !anteriorVIP)) wait();
         } catch (InterruptedException e) {
@@ -33,8 +47,14 @@ public class GestorDespegue {
         pistaOcupada = true;
     }
 
-    public synchronized void  despegarAvionVIP() throws InterruptedException {
+    public synchronized void  despegarAvionVIP(int id) throws InterruptedException {
         nVIPEsperando++;
+
+        if (pistaOcupada || (nEsperando > 0 && anteriorVIP)) {
+           System.out.println("*** Avion Vip id: " + id + " está bloqueado");            
+        }
+
+
         try {
             while (pistaOcupada || (nEsperando > 0 && anteriorVIP)) wait();
         } catch (InterruptedException e) {
@@ -51,6 +71,7 @@ public class GestorDespegue {
 
     public synchronized void  finTemporizador() throws InterruptedException {
         pistaOcupada = false;
+        System.out.println("Expira el temporizador. Despegue seguro");
         notifyAll();
     }
 }
